@@ -135,3 +135,7 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Package lock files (prevent sync issues)
+package-lock.json
+yarn.lock

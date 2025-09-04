@@ -1,12 +1,7 @@
-# Railway Nixpacks Configuration for React App - Fixed for package-lock sync issues
+# Railway Nixpacks Configuration - Minimal setup to avoid conflicts
 
-[phases.build]
-cmds = [
-    "npm cache clean --force",
-    "rm -f package-lock.json",
-    "npm install --no-package-lock",
-    "npm run build"
-]
+[phases.install]
+cmds = ["npm install --legacy-peer-deps --no-package-lock"]
 
 [start]
 cmd = "npm run start:production"

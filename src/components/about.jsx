@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import '../index.css'
 import pi1 from '../images/divider.png'
 import pi2 from '../images/about_me_pic2.jpg'

@@ -1,3 +1,51 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Allow: /images/
+Allow: /static/
+Allow: /*.css$
+Allow: /*.js$
+
+# Sitemap location
+Sitemap: https://shubhamsilyan.com/sitemap.xml
+
+# Crawl delay for better server performance
+Crawl-delay: 1
+
+# Block access to sensitive areas
+Disallow: /admin/
+Disallow: /api/admin/
+Disallow: /*.json$
+Disallow: /build/
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /private/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Allow specific search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Cache directive
+Cache-delay: 86400
