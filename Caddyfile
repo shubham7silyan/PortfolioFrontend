@@ -1,5 +1,5 @@
 :80 {
-  root * /app/build
+  root * /build
   file_server
   try_files {path} /index.html
 }
