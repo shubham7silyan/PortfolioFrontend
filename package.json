@@ -3,28 +3,42 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/web": "^10.0.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/react": "^18.2.48",
+    "@use-gesture/react": "^10.3.1",
     "aos": "^3.0.0-beta.6",
-    "bootstrap": "^5.0.1",
     "cors": "^2.8.5",
     "react": "^18.2.0",
     "react-countup": "^6.5.0",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
     "react-hooks": "^1.0.1",
     "react-icons": "^4.12.0",
     "react-scripts": "5.0.1",
     "react-scroll-trigger": "^0.6.14",
-    "react-simple-typewriter": "^5.0.1",
+    "react-spring": "^10.0.1",
+    "react-use-gesture": "^9.1.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run optimize:images && npm run seo:optimize",
+    "build:analyze": "ANALYZE=true npm run build",
+    "build:production": "GENERATE_SOURCEMAP=false npm run build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "optimize:images": "node scripts/optimize-images.js",
+    "purge:css": "node scripts/purge-css.js",
+    "seo:optimize": "npm run seo:sitemap && npm run seo:robots",
+    "seo:sitemap": "echo 'Sitemap already optimized'",
+    "seo:robots": "echo 'Robots.txt already optimized'",
+    "seo:audit": "npx lighthouse https://shubhamsilyan.com --output=html --output-path=./seo-audit.html",
+    "analyze": "npm run build && npx serve -s build",
+    "lighthouse": "npx lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html --chrome-flags='--headless'",
+    "performance:audit": "npm run build:production && npm run lighthouse"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +59,38 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^6.22.1"
-  }
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "autoprefixer": "^10.4.21",
+    "compression-webpack-plugin": "^10.0.0",
+    "cssnano": "^6.1.2",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^7.0.0",
+    "postcss-loader": "^7.3.4",
+    "purgecss": "^5.0.0",
+    "react-router-dom": "^6.22.1",
+    "webpack-bundle-analyzer": "^4.10.2"
+  },
+  "keywords": [
+    "Shubham Silyan",
+    "Full Stack Developer",
+    "React.js",
+    "Node.js",
+    "MongoDB",
+    "Portfolio",
+    "Web Developer",
+    "JavaScript",
+    "Amritsar",
+    "Punjab",
+    "India"
+  ],
+  "author": {
+    "name": "Shubham Silyan",
+    "email": "shubham7silyan@gmail.com",
+    "url": "https://shubhamsilyan.com"
+  },
+  "description": "Professional portfolio of Shubham Silyan - Full Stack Developer specializing in React.js, Node.js, and MongoDB. Based in Amritsar, Punjab, India.",
+  "homepage": "https://shubhamsilyan.com"
 }

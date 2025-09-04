@@ -1,29 +1,58 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.css'
-import Nav from './components/navbar';
-import Fpage from './components/Fpage';
-import Aboutt from './components/about';
-import Skil from './components/skills';
-import Contact from './components/contact';
-import Footer from './components/footer';
-import Navv from './project/rou';
 
+// Lazy load components for code splitting
+const Nav = lazy(() => import('./components/navbar'));
+const Fpage = lazy(() => import('./components/Fpage'));
+const Aboutt = lazy(() => import('./components/about'));
+const Skil = lazy(() => import('./components/skills'));
+const ProjectShowcase = lazy(() => import('./components/ProjectShowcase'));
+const Contact = lazy(() => import('./components/contact'));
+const Footer = lazy(() => import('./components/footer'));
+
+// Loading component
+const LoadingSpinner = () => (
+  <div style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    background: '#000',
+    color: '#dc3545'
+  }}>
+    <div>Loading...</div>
+  </div>
+);
+
+const App = () => {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <Nav ani="fade-down" />
+      <Suspense fallback={<div style={{height: '100vh', background: '#000'}} />}>
+        <Fpage ani="fade-left" />
+      </Suspense>
+      <Suspense fallback={<div style={{height: '50vh', background: '#000'}} />}>
+        <Aboutt ani="fade-right" anim="flip-left" anima="flip-down" />
+      </Suspense>
+      <Suspense fallback={<div style={{height: '50vh', background: '#000'}} />}>
+        <Skil />
+      </Suspense>
+      <Suspense fallback={<div style={{height: '50vh', background: '#000'}} />}>
+        <ProjectShowcase />
+      </Suspense>
+      <Suspense fallback={<div style={{height: '50vh', background: '#000'}} />}>
+        <Contact animzz="fade-right" animz="flip-down" />
+      </Suspense>
+      <Suspense fallback={<div style={{height: '20vh', background: '#000'}} />}>
+        <Footer />
+      </Suspense>
+    </Suspense>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <>
-<Nav ani="fade-down"></Nav>
-<Fpage ani="fade-left"></Fpage>
-<Aboutt ani="fade-right" anim="flip-left" anima="flip-down"></Aboutt>
-<Skil></Skil>
-<Navv></Navv>
-<Contact animzz="fade-right" animz="flip-down"></Contact>
-<Footer></Footer>
-
-  </>
-);
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -3,9 +3,9 @@ import '../index.css'
 
 function NavAbout() {
     return (<>
-        <div id="abt-section" className="container">
-            <div className="row">
-                <div className="col abt-sec mt-5">
+        <div id="abt-section" className="layout-container">
+            <div className="layout-row">
+                <div className="layout-col abt-sec mt-5">
                     <h1>ABOUT</h1>
                     <p>
                         Hello there! I'm <span>Shubham Silyan</span>, a 23-year-old enthusiast hailing from the culturally vibrant city of <span>Amritsar</span>. With a penchant for technology and a thirst for learning, I embarked on a journey that led me to explore the realms of computer science and web development.
