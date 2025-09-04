@@ -29,7 +29,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "caddy run --config /Caddyfile --adapter caddyfile",
     "build": "cross-env CI=false GENERATE_SOURCEMAP=false react-scripts build",
     "build:analyze": "ANALYZE=true npm run build",
     "build:production": "CI=false GENERATE_SOURCEMAP=false npm install --legacy-peer-deps && react-scripts build",
