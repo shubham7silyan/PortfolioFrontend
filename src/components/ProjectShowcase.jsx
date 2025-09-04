@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './ProjectShowcase.css';
 
 // Import images
@@ -118,8 +118,6 @@ const projects = [
 
 function ProjectShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
