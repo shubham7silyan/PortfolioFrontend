@@ -1,16 +1,10 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import '../index.css'
 import pi1 from '../images/divider.png'
 import pi2 from '../images/about_me_pic2.jpg'
 import resume from '../resume/ss.pdf'
 
 function Aboutt(props) {
-    const [imageLoaded, setImageLoaded] = useState(false);
-    
-    const handleImageLoad = useCallback(() => {
-        setImageLoaded(true);
-    }, []);
-
     return (
         <section className="layout-full about-main bg-black" id="about-section" aria-labelledby="about-heading">
             <div className="layout-container bg-black">
