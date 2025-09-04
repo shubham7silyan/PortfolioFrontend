@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
   },
   "dependencies": {
     "@react-spring/web": "^10.0.1",
@@ -46,7 +46,9 @@
     "seo:audit": "npx lighthouse https://shubhamsilyan.com --output=html --output-path=./seo-audit.html",
     "analyze": "npm run build && npx serve -s build",
     "lighthouse": "npx lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html --chrome-flags='--headless'",
-    "performance:audit": "npm run build:production && npm run lighthouse"
+    "performance:audit": "npm run build:production && npm run lighthouse",
+    "install:clean": "rm -rf node_modules package-lock.json && npm install",
+    "postinstall": "echo 'Dependencies installed successfully'"
   },
   "eslintConfig": {
     "extends": [
